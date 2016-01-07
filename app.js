@@ -4,6 +4,17 @@ var favicon = require('serve-favicon');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
+var fileUtils = require('./fileUtils');
+
+var CONF = './config.json';
+
+if ( fileUtils.fileExists(CONF) == false ) {
+    // want to do some kind of error generation
+    console.log('You need to copy config-default.json to config.json.');
+    console.log('Then edit config.json to reflect any values specfied.');
+    console.log('Most critical is the zonedir path.');
+    process.exit(0);
+}
 var mydb = require('./myDb');
 
 var root = require('./routes/index');
@@ -11,6 +22,7 @@ var checkin = require('./routes/checkin');
 var clear = require('./routes/clear');
 
 var app = express();
+
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -23,6 +35,8 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
+
+var conf = require(CONF);
 
 app.use('/', root);
 app.use('/checkin', checkin);
