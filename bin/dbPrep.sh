@@ -6,6 +6,8 @@ chmod 777 $dname
 
 cat <<EOF > './config.json'
 {
-    dbpath : "$dbpath"
+    "dbpath" : "$dbpath"
 }
 EOF
+
+npm install
