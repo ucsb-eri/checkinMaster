@@ -18,3 +18,12 @@ Note that on linux systems you may need to open up the firewall to allow access 
 the node service running.  Our CentOS boxes are setup like the following
 
 -A INPUT -m state --state NEW -m tcp -p tcp --dport 3000:3005 -s 128.111.100.0/23 -j ACCEPT
+
+# On CentOS-7 use systemd to run
+
+groupadd -g 500 nsmgmt
+useradd -u 500 -c "Nsmgmt account" nsmgmt
+
+cp svc node-checkin-master.service /etc/systemd/system/
+systemctl enable node-checkin-master
+systemctl start node-checkin-master
