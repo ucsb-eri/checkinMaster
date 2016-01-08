@@ -9,4 +9,5 @@ Info to store is pretty simple:
   ip       - from the request
   time     - this server will timestamp
 
-
+cd into the directory and run:
+  bin/dbPrep.sh
