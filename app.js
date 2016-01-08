@@ -20,6 +20,7 @@ var mydb = require('./myDb');
 var root = require('./routes/index');
 var checkin = require('./routes/checkin');
 var clear = require('./routes/clear');
+var exprt = require('./routes/export');
 
 var app = express();
 
@@ -39,6 +40,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 var conf = require(CONF);
 
 app.use('/', root);
+app.use('/export', exprt);
 app.use('/checkin', checkin);
 app.use('/clear', clear);
 
