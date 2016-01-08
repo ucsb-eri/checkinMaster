@@ -26,7 +26,7 @@ router.get('/', function(req, res, next) {
                 rows[i].class = 'fail';
             }
         }
-        res.render('index', { title: 'Checkin', rows: rows });
+        res.render('index', { title: 'Checkin', rows: rows, len: len });
     });
 });
 
