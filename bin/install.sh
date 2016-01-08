@@ -11,3 +11,7 @@ cat <<EOF > './config.json'
 EOF
 
 npm install
+
+
+allowfrom="128.111.100.0/23"
+echo "-A INPUT -m state --state NEW -m tcp -p tcp --dport 3000:3005 -s $allowfrom -j ACCEPT"

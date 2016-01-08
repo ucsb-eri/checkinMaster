@@ -9,5 +9,12 @@ Info to store is pretty simple:
   ip       - from the request
   time     - this server will timestamp
 
-cd into the directory and run:
-  bin/dbPrep.sh
+cd into the main app directory - edit and then run:
+  vi bin/install.sh
+  bin/install.sh
+  
+
+Note that on linux systems you may need to open up the firewall to allow access to 
+the node service running.  Our CentOS boxes are setup like the following
+
+-A INPUT -m state --state NEW -m tcp -p tcp --dport 3000:3005 -s 128.111.100.0/23 -j ACCEPT
