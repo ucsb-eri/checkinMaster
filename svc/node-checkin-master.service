@@ -1,4 +1,8 @@
+[Unit]
+Description=Node server
+
 [Service]
+Type=forking
 ExecStart=/opt/node/bin/node /opt/node-checkin-master/bin/www 
 ## Example
 #ExecStart=/usr/bin/node app.js
@@ -8,9 +12,6 @@ StandardError=syslog
 SyslogIdentifier=node-checkin-master
 User=nsmgmt
 Group=nsmgmt
-## Could also be :
-#User=nginx
-#Group=nginx
 Environment=NODE_ENV=production PORT=3003
 WorkingDirectory=<FULL-PATH-TO-WORKING-DIRECTORY>
 
