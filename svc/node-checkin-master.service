@@ -3,16 +3,15 @@ ExecStart=/opt/node/bin/node /opt/node-checkin-master/bin/www
 ## Example
 #ExecStart=/usr/bin/node app.js
 Restart=always
-StandardOutput=/var/log/nodejs/node-checkin-master.log
-StandardError=/var/log/nodejs/node-checkin-master.err
+StandardOutput=syslog
+StandardError=syslog
 SyslogIdentifier=node-checkin-master
 User=nsmgmt
 Group=nsmgmt
 ## Could also be :
 #User=nginx
 #Group=nginx
-Environment=NODE_ENV=production
-Environment=PORT=3003
+Environment=NODE_ENV=production PORT=3003
 WorkingDirectory=<FULL-PATH-TO-WORKING-DIRECTORY>
 
 [Install]
