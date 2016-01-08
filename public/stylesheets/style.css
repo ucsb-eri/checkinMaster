@@ -6,3 +6,16 @@ body {
 a {
   color: #00B7FF;
 }
+table, td {
+    border: 1px solid blue;
+    border-collapse: collapse;
+}
+.warn {
+    background-color: yellow;
+}
+.fail {
+    background-color: red;
+}
+.good {
+    background-color: green;
+}

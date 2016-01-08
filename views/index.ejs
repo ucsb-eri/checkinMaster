@@ -7,5 +7,14 @@
   <body>
     <h1><%= title %></h1>
     <p>Welcome to <%= title %></p>
+    <table>
+    <% rows.forEach(function(r){ %>
+    <tr>
+    <td class="<%= r.class %>"><%= r.host %></td>
+    <td><%= r.ip %></td>
+    <!-- <td><%= r.ctime %></td>  -->
+    <td><%= r.age %></td>
+    </tr>
+    <% }); %>
   </body>
 </html>

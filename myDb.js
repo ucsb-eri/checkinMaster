@@ -10,5 +10,9 @@ module.exports = {
     },
     run: function(query,params){
         db.run(query,params);
+    },
+    all: function(query,params,callback){
+        db.all(query,params,callback);
+
     }
 };
