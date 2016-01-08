@@ -2,7 +2,9 @@
 Description=ERI system checkin Node server
 
 [Service]
-Type=forking
+# its not forking, since node just sits there outputting stuff
+Type=simple
+RootDirectory=/opt/node-checkin-master
 ExecStart=/opt/node/bin/node /opt/node-checkin-master/bin/www 
 ## Example
 #ExecStart=/usr/bin/node app.js
