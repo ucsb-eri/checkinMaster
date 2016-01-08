@@ -1,5 +1,5 @@
 [Unit]
-Description=Node server
+Description=ERI system checkin Node server
 
 [Service]
 Type=forking

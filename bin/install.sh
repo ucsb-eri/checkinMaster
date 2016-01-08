@@ -24,6 +24,7 @@ if [ -d $svc ]; then
     echo "cp svc/node-checkin-master.service $svc"
     cp svc/node-checkin-master.service $svc
     
+    systemctl daemon-reload
     systemctl enable node-checkin-master
     systemctl start node-checkin-master
 fi
