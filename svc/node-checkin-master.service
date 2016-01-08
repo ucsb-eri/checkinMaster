@@ -5,15 +5,15 @@ Description=ERI system checkin Node server
 # its not forking, since node just sits there outputting stuff
 Type=simple
 RootDirectory=/opt/node-checkin-master
-ExecStart=/opt/node-v4.2.4-linux-x64/bin/node /opt/node-checkin-master/bin/www 
+ExecStart=/opt/node/bin/node /opt/node-checkin-master/bin/www 
 ## Example
 #ExecStart=/usr/bin/node app.js
 Restart=always
 StandardOutput=syslog
 StandardError=syslog
 SyslogIdentifier=node-checkin-master
-User=nsmgmt
-Group=nsmgmt
+User=root
+Group=root
 Environment=NODE_ENV=production PORT=3003
 WorkingDirectory=<FULL-PATH-TO-WORKING-DIRECTORY>
 
