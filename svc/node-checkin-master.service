@@ -5,7 +5,7 @@ Description=ERI system checkin Node server
 # its not forking, since node just sits there outputting stuff
 Type=simple
 WorkingDirectory=/opt/node-checkin-master
-ExecStart=/opt/node/bin/node /opt/node-checkin-master/bin/www 
+ExecStart=/usr/bin/nodemon /opt/node-checkin-master/bin/www 
 ## Example
 #ExecStart=/usr/bin/node app.js
 Restart=always
