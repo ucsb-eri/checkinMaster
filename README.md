@@ -24,7 +24,7 @@ the node service running.  Our CentOS boxes are setup like the following
 groupadd -g 500 nsmgmt
 useradd -u 500 -c "Nsmgmt account" nsmgmt
 
-cp svc node-checkin-master.service /etc/systemd/system/
+cp svc/node-checkin-master.service /etc/systemd/system/
 systemctl enable node-checkin-master
 systemctl start node-checkin-master
 ```
