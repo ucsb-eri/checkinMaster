@@ -20,10 +20,41 @@ the node service running.  Our CentOS boxes are setup like the following
 -A INPUT -m state --state NEW -m tcp -p tcp --dport 3000:3005 -s 128.111.100.0/23 -j ACCEPT
 
 # On CentOS-7 use systemd to run
-
+```
 groupadd -g 500 nsmgmt
 useradd -u 500 -c "Nsmgmt account" nsmgmt
 
 cp svc node-checkin-master.service /etc/systemd/system/
 systemctl enable node-checkin-master
 systemctl start node-checkin-master
+```
+
+# Alternate systemctl install
+```
+cat <<EOF >/opt/lib/system/vmapi.service     # change this path to a real service path
+[Unit]
+Description=VMapi Server
+
+[Service]
+ExecStart=/usr/bin/nodemon /opt/vmapi/bin/www
+#/usr/bin/npm start
+# Required on some systems
+WorkingDirectory=/opt/vmapi
+Restart=always
+# Restart service after 10 seconds if node service crashes
+RestartSec=10
+# Output to a file, but the file is overwritten at service restart
+#StandardOutput=file:/var/log/nodejs/vmapi.out
+#StandardError=file:/var/log/nodejs/vmapi.err
+# Output to syslog
+StandardOutput=syslog
+StandardError=syslog
+SyslogIdentifier=vmapi
+#User=<alternate user>
+#Group=<alternate group>
+Environment=NODE_ENV=production PORT=3004
+
+[Install]
+WantedBy=multi-user.target
+EOF
+```
